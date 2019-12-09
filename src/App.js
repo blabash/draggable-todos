@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Draggable from './components/Draggable';
 import { is } from '@babel/types';
 
-const MAX = 5;
+const MAX = 6;
 const HEIGHT = 80;
 
 function App() {
@@ -21,12 +21,12 @@ function App() {
       const delta = Math.round(translation.y / HEIGHT);
       const index = state.order.indexOf(id);
       const dragOrder = state.order.filter(index => index !== id);
-
       if (!inRange(index + delta, 0, items.length)) {
         return;
       }
 
       dragOrder.splice(index + delta, 0, id);
+      console.log(dragOrder);
 
       setState(state => ({
         ...state,
@@ -67,9 +67,6 @@ function App() {
           );
         })}
       </Container>
-      <Draggable onDrag={console.log} id='uniqueId'>
-        <h2>Drag me</h2>
-      </Draggable>
     </div>
   );
 }
