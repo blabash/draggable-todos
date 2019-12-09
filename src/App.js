@@ -1,9 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Draggable from './components/Draggable';
 
 function App() {
-  return <div>derp</div>;
+  return (
+    <div>
+      <Draggable onDrag={console.log} id='uniqueId'>
+        <h2>Drag me</h2>
+      </Draggable>
+    </div>
+  );
 }
 
 export default App;
